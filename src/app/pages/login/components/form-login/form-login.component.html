@@ -1,1 +1,23 @@
-<p>form-login works!</p>
+<h2>Formulario de Login:</h2>
+<!-- formGroup es el nombre de nuestro formFroup del .ts -->
+<form novalidate (ngSubmit)="onSubmit()" [formGroup]="userLoginForm">
+    <!-- Fieldset del primer campo - email -->
+	<fieldset>
+        <label for="email">Email:</label>
+        <input type="text" id="email" formControlName="email" />
+        <div *ngIf="!userLoginForm.get('email')?.valid &&
+        (userLoginForm.get('email')?.dirty || submitted)">
+        Has introducido mal tu email
+        </div>
+        
+      </fieldset>
+      <fieldset>
+        <label for="password">Password:</label>
+        <input type="password" id="password" formControlName="password" />
+        
+        
+      </fieldset>
+      <!-- Botón deshabilitado hasta que el formulario sea valid -->
+	<button type="submit" [disabled]="!userLoginForm.valid">Submit</button>
+
+</form>
