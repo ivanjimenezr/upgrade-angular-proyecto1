@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ILogo, ILinks } from './models/Inavbar';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -14,8 +15,9 @@ export class NavbarComponent implements OnInit {
   public pisos! : ILinks;
   public login! : ILinks;
   public register! : ILinks;
+  public userProfile! : ILinks;
 
-  constructor() {
+  constructor(public authService: AuthService) {
     this.iLogo = {
         img:'../../../../assets/avap.png',
         href:'https://www.avap.es',
@@ -45,6 +47,11 @@ this.register = {
 
   title:'Register',
   href:'register'
+},
+this.userProfile = {
+
+  title:'User profile',
+  href:'user-profile'
 }
 
 
@@ -53,6 +60,10 @@ this.register = {
   }
 
   ngOnInit(): void {
+  }
+
+  logout() {
+    this.authService.doLogout();
   }
 
 }

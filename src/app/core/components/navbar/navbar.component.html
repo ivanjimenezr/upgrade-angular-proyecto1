@@ -1,8 +1,10 @@
 <ul>
-    <li><a href="{{iLogo.href}}" title="{{iLogo.alt}}"><img src="{{iLogo.img}}" alt="{{iLogo.alt}}"></a></li>
+    <a href="{{iLogo.href}}" title="{{iLogo.alt}}"><img src="{{iLogo.img}}" alt="{{iLogo.alt}}"></a>
     <li><a [routerLink]="[home.href]">{{home.title}}</a></li>
     <li><a [routerLink]="[pisos.href]">{{pisos.title}}</a></li>
     <li><a [routerLink]="[about.href]">{{about.title}}</a></li>
     <li><a [routerLink]="[login.href]">{{login.title}}</a></li>
     <li><a [routerLink]="[register.href]">{{register.title}}</a></li>
+    <li><a  *ngIf="!this.authService.isLoggedIn" [routerLink]="[userProfile.href]">{{userProfile.title}}</a></li>
+    <button (click)="logout()" *ngIf="this.authService.isLoggedIn" type="button">Logout</button>
 </ul>
