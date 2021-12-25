@@ -10,3 +10,7 @@ export interface IuserLogin {
     email: String;
     password: String;
 }
+
+export interface IcurrentUserId {
+    currentUserId : String;
+}

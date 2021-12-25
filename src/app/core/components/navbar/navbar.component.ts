@@ -20,7 +20,7 @@ export class NavbarComponent implements OnInit {
   constructor(public authService: AuthService) {
     this.iLogo = {
         img:'../../../../assets/avap.png',
-        href:'https://www.avap.es',
+        href:'/',
         alt:'Agencia de la vivienda y la ayuda al particular'
     }
     this.home = {
@@ -51,7 +51,7 @@ this.register = {
 this.profile = {
 
   title:'User profile',
-  href:'profile'
+  href:'profile/'
 }
 
 
@@ -65,5 +65,7 @@ this.profile = {
   logout() {
     this.authService.doLogout();
   }
+
+  
 
 }

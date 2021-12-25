@@ -1,9 +1,8 @@
-<p>pisos-component works!</p>
-
 <ul>
     <li *ngFor="let piso of pisosList; let index = index">
         <p>{{piso.titular}}</p>
         <img src="{{piso.imagen}}" alt="">
+        <p>superficie: {{piso.superficie}}m<sup>2</sup> | precio: {{piso.precio}}</p>
         
     </li>
 </ul>
