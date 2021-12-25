@@ -5,3 +5,8 @@ export interface User {
     password: String;
     emoji: String;
 }
+
+export interface IuserLogin {
+    email: String;
+    password: String;
+}

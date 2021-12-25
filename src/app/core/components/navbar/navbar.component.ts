@@ -15,7 +15,7 @@ export class NavbarComponent implements OnInit {
   public pisos! : ILinks;
   public login! : ILinks;
   public register! : ILinks;
-  public userProfile! : ILinks;
+  public profile! : ILinks;
 
   constructor(public authService: AuthService) {
     this.iLogo = {
@@ -48,10 +48,10 @@ this.register = {
   title:'Register',
   href:'register'
 },
-this.userProfile = {
+this.profile = {
 
   title:'User profile',
-  href:'user-profile'
+  href:'profile'
 }
 
 

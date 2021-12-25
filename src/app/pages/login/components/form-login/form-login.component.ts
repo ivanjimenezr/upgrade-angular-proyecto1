@@ -11,24 +11,32 @@ import { AuthService } from 'src/app/core/services/auth.service';
 })
 export class FormLoginComponent implements OnInit {
 
-  public userLoginForm : FormGroup ;
+  public userLoginForm! : FormGroup ;
 
   public submitted : boolean = false;
 
   constructor(private formBuilder: FormBuilder, public authService: AuthService, public router: Router) {
-    this.userLoginForm = this.formBuilder.group ({
-      email: ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
-      password: ['', [Validators.required, Validators.maxLength(10)]]
-    })
+    this.buildForm();
   }
 
   ngOnInit(): void {
   }
 
 
-  loginUser() {
+  
+
+
+  public buildForm() {
+    this.userLoginForm = this.formBuilder.group({
+      email: [''],
+      password: ['']
+    })
+  }
+  public loginUser() {
     this.authService.signIn(this.userLoginForm.value)
   }
+
+
   // public onSubmit (): void {
   //   this.submitted = true;
   //   if (this.userLoginForm.valid){

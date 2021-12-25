@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { User } from '../models/user';
+import { User, IuserLogin } from '../models/user';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
@@ -13,64 +13,63 @@ export class AuthService {
 	//Definimos el endpoint y los headers para poder realizar la petición
   endpoint: string = 'https://inmobiliaria-bootcamp.herokuapp.com'; 
   headers = new HttpHeaders().set('Content-Type', 'application/json');
-  currentUser = {}; //Aquí almacenaremos el usuario 
+  currentUser : Object = {}; //Aquí almacenaremos el login => token + ID
 
-  constructor(
-    private http: HttpClient,
-    public router: Router
-  ) {
-  }
+  constructor(private http: HttpClient,public router: Router) { /* Empty */}
 
   // Sign-up
   signUp(user: User): Observable<any> {
-    let api = `${this.endpoint}/usuario/register`;
-    return this.http.post(api, user)
+    return this.http.post(`${this.endpoint}/usuario/register`, user)
       .pipe(
         catchError(this.handleError)
       )
   }
 
   // Sign-in
-  public signIn(user: User) {
-    return this.http.post<any>(`${this.endpoint}/usuario/authenticate`, user)
-      .subscribe((res: any) => {
+  public signIn(iuserLogin: IuserLogin) {
+    return this.http.post<any>(`${this.endpoint}/usuario/authenticate`, iuserLogin).subscribe((res: any) => {
         localStorage.setItem('access_token', res.token)
 				//Seteamos el token
-        // this.getUserProfile(res._id).subscribe((res) => {
+        this.getUserProfile(res._id).subscribe((res) => {
           this.currentUser = res;
-          // this.router.navigate(['user-profile/' + res.msg._id]);
+          console.log(this.currentUser)
+          this.router.navigate(['usuario' + res.msg.data.usuarios._id]);
 				//Volvemos al user-profile una vez ejecutada la función
-        // })
+        })
       })
   }
 
-  getToken() {
+  public getToken() {
     return localStorage.getItem('access_token');
   }
-	//
-  get isLoggedIn(): boolean {
-    let authToken = localStorage.getItem('access_token');
-    return (authToken !== null) ? true : false;
-  }
 
-  doLogout() {
+  // Logout
+  public doLogout() {
     let removeToken = localStorage.removeItem('access_token');
     if (removeToken == null) {
       this.router.navigate(['']);
     }
   }
 
+	// Comprobar si el usuario tiene Token
+  // get isLoggedIn(): boolean {
+  public isLoggedIn(): boolean {
+    return localStorage.getItem('access_token') !== null ? true : false;
+  }
+
+  
+
   // User profile
-  // getUserProfile(id: string): Observable<any> {
-  //   let api = `${this.endpoint}/user-profile/${id}`;
+  getUserProfile(id: string): Observable<any> {
+    let api = `${this.endpoint}/usuario/${id}`;
     
-  //   return this.http.get(api, { headers: this.headers }).pipe(
-  //     map((res: any) => {
-  //       return res || {}
-  //     }),
-  //     catchError(this.handleError)
-  //   )
-  // }
+    return this.http.get(api, { headers: this.headers }).pipe(
+      map((res: any) => {
+        return res || {}
+      }),
+      catchError(this.handleError)
+    )
+  }
 
   // Error 
   handleError(error: HttpErrorResponse) {

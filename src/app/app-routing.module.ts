@@ -19,10 +19,10 @@ const routes: Routes = [
   {
     path: `register`, loadChildren: () => import('./pages/register/register.module').then(m=>m.RegisterModule)
   },
-  // {
-  //   path: `user-profile:id`, loadChildren: () => import('./pages/user-profile/user-profile.module').then(m=>m.UserProfileModule),
-  //   canActivate: [AuthGuard] //Con esto protegemos esta ruta
-  // },
+  {
+    path: `profile`, loadChildren: () => import('./pages/profile/profile.module').then(m=>m.ProfileModule),
+    canActivate: [AuthGuard] //Con esto protegemos esta ruta
+  },
 ];
 
 @NgModule({
