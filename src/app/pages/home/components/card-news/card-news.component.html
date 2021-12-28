@@ -1,0 +1,24 @@
+<div class="group-minicards">
+    <div class="minicard" *ngFor="let mini of mini_card">
+        <div class="picture">
+            <img src="{{mini.src}}" alt="{{mini.titular}}">
+        </div>
+        <div class="text">
+            <p class="titular">{{mini.titular}}</p>
+            <p>{{mini.descrip}}</p>
+            <p><a href="">{{mini.link}}</a></p>
+        </div>
+    </div>
+</div>
+
+
+<h1>Noticias destacadas</h1>
+<div class="group-cards">
+    <div class="card" *ngFor="let item of card">
+        <img src="{{item.src}}" alt="{{item.descrip}}">
+        <div class="text">
+            <p>{{item.descrip}}</p>
+            <p><a href="#">{{item.link}}</a></p>
+        </div>
+    </div>
+</div>
