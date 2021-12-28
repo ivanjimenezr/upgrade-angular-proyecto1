@@ -14,12 +14,16 @@ export class ProfileService {
 
   constructor(private http: HttpClient, public router: Router) { }
 
-  getPisoId(id:String): Observable<any> {
+  getUsuarioId(id:String): Observable<any> {
+    
+
     let api = `${this.endpoint}/usuario/${id}`;
     console.log('api: ',api)
     return this.http.get(api, { headers: this.headers }).pipe(
       map((res: any) => {
         console.log(res.data.usuarios)
+        sessionStorage.setItem('name', String(res.data.usuarios.name));
+        sessionStorage.setItem('id', String(id));
         return res || {}
       }),
       catchError(this.handleError)

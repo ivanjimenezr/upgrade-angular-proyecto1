@@ -1,10 +1,19 @@
-<ul>
-    <li *ngFor="let piso of pisosList; let index = index">
-        <p>{{piso.titular}}</p>
-        <img src="{{piso.imagen}}" alt="">
-        <!-- <a href="pisos/detail/{{piso._id}}">Detalles</a> -->
-        <a href="pisos/detail/{{piso._id}}">Detalles</a>
-        <p>superficie: {{piso.superficie}}m<sup>2</sup> | precio: {{piso.precio}} | id: {{piso._id}}</p>
+
+<div class="grid-content">
+    <h1>Viviendas, Las Rozas de Madrid</h1>
+    <div *ngFor="let piso of pisosList; let index = index" class="grid-card">
+        <div class="grid-foto">
+            <img src="{{piso.imagen}}" alt="">
+        </div>
+        <div class="grid-detalles">
+            <p><a href="pisos/detail/{{piso._id}}" title="{{piso.titular}}">{{piso.titular}}</a></p>
+            <!-- <a href="pisos/detail/{{piso._id}}">Detalles</a> -->
+            <p class="precio">{{piso.precio}}</p>
+            <p>{{piso.superficie}}m<sup>2</sup> id: {{piso._id}}</p>
+            <p><a href="pisos/detail/{{piso._id}}">+ info</a></p>
+        </div>
         
-    </li>
-</ul>
+        
+    </div>
+
+</div>

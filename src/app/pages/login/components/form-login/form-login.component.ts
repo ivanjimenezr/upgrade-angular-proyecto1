@@ -23,9 +23,6 @@ export class FormLoginComponent implements OnInit {
   }
 
 
-  
-
-
   public buildForm() {
     this.userLoginForm = this.formBuilder.group({
       email: [''],
@@ -36,19 +33,5 @@ export class FormLoginComponent implements OnInit {
     this.authService.signIn(this.userLoginForm.value)
   }
 
-
-  // public onSubmit (): void {
-  //   this.submitted = true;
-  //   if (this.userLoginForm.valid){
-  //     const user: ILoginForm = {
-  //       email: this.userLoginForm.get('email')?.value,
-  //       password: this.userLoginForm.get('password')?.value
-  //     };
-  //     console.log(user);
-  //     this.userLoginForm.reset();
-  //     this.submitted = false;
-  //   }
-    
-  // }
 
 }

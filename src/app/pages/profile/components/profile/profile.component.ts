@@ -23,7 +23,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
     this.sub = this.activatedRoute.params.subscribe(params =>{
       this.userId = params['id'];
       
-      this.profileService.getPisoId(this.userId).pipe(
+      this.profileService.getUsuarioId(this.userId).pipe(
         map((user:any)=> this.user = user) 
         
       ).subscribe()

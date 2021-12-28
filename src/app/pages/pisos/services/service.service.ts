@@ -23,6 +23,16 @@ export class ServiceService {
     )
   }
 
+  getPisoId(idPiso:any): Observable<any> {
+    let api = `${this.endpoint}/pisos/${idPiso}`;
+    return this.http.get(api, { headers: this.headers }).pipe(
+      map((res: any) => {
+        return res || {}
+      }),
+      catchError(this.handleError)
+    )
+  }
+
   // Error 
   handleError(error: HttpErrorResponse) {
     let msg = '';

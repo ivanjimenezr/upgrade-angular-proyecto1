@@ -28,6 +28,7 @@ export class AuthService {
 
   // Sign-in
   public signIn(iuserLogin: IuserLogin) {
+
     return this.http.post<any>(`${this.endpoint}/usuario/authenticate`, iuserLogin).subscribe((res: any) => {
         localStorage.setItem('access_token', res.token)
         
@@ -38,6 +39,7 @@ export class AuthService {
           // this.router.navigate(['profile/' + res.data.usuarios._id]);
           this.currentUser = res;
           this.currentUserId = res.data.usuarios._id
+          
           this.router.navigate(['profile/' + this.currentUserId]);
           
           
@@ -45,7 +47,7 @@ export class AuthService {
         })
       })
   }
-
+  public idUsuario = this.currentUserId
   public getToken() {
     return localStorage.getItem('access_token');
   }

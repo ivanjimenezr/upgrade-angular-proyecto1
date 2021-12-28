@@ -1,5 +1,12 @@
-<div *ngIf="user">
-    <p>Nombre: {{user.data.usuarios.name}}</p>
-    <p>Email: {{user.data.usuarios.email}}</p>
-    <p>Fecha de alta: {{user.data.usuarios.createdAt}}</p>
+<div class="content-profile">
+    <div *ngIf="user" class="card">
+        <div class="foto-profile">
+            foto perfil
+        </div>
+        <div class="datos">
+            <h2>{{user.data.usuarios.name}}</h2>
+            <p>Email: {{user.data.usuarios.email}}</p>
+            <p>Fecha de alta: {{user.data.usuarios.createdAt}}</p>
+        </div>
+    </div>
 </div>

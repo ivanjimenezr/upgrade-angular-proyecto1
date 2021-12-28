@@ -17,9 +17,15 @@ export class NavbarComponent implements OnInit {
   public register! : ILinks;
   public profile! : ILinks;
 
+  public userId = sessionStorage.getItem('id');
+  public userName = sessionStorage.getItem('name');
+
+  // console.log(' to see the id in the console',data)
+
   constructor(public authService: AuthService) {
+    
     this.iLogo = {
-        img:'../../../../assets/avap.png',
+        img:'../../../../assets/avap_corto.png',
         href:'/',
         alt:'Agencia de la vivienda y la ayuda al particular'
     }
@@ -50,16 +56,17 @@ this.register = {
 },
 this.profile = {
 
-  title:'User profile',
-  href:'profile/'
+  title: `${this.userName}`,
+  href:`profile/${this.userId}`
 }
 
 
-    
+
     
   }
 
   ngOnInit(): void {
+    
   }
 
   logout() {

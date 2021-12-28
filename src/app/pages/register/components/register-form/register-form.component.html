@@ -1,40 +1,43 @@
-<h2>Formulario de Registro:</h2>
+<h2>Registro</h2>
 <!-- formGroup es el nombre de nuestro formFroup del .ts -->
 <form novalidate (ngSubmit)="onSubmit()" [formGroup]="userRegisterForm">
-    <fieldset>
-        <label for="name">Name</label>
-        <input type="text" id="name" formControlName="name">
-        <div *ngIf="!userRegisterForm.get('name')?.valid &&
-            (userRegisterForm.get('name')?.dirty || submitted)">
-        Has introducido mal tu nombre
+    
+        <div>
+            <input class="input" type="text" id="name" formControlName="name" placeholder="Nombre">
+            <div *ngIf="!userRegisterForm.get('name')?.valid &&
+                (userRegisterForm.get('name')?.dirty || submitted)">
+            Has introducido mal tu nombre
+            </div>
         </div>
-    </fieldset>
-    <fieldset>
-        <label for="email">Email</label>
-        <input type="text" id="email" formControlName="email">
-        <div *ngIf="!userRegisterForm.get('email')?.valid &&
-            (userRegisterForm.get('email')?.dirty || submitted)">
-        Has introducido mal tu email
+    
+       <div>
+            <input class="input" type="text" id="email" formControlName="email" placeholder="Email">
+            <div *ngIf="!userRegisterForm.get('email')?.valid &&
+                (userRegisterForm.get('email')?.dirty || submitted)">
+            Has introducido mal tu email
+            </div>
+        </div> 
+    
+    
+        <div>
+            <input class="input" type="password" id="password" formControlName="password" placeholder="Password" />
+                <!-- Si el campo password es invalido / ha sido password / submitted = true -->
+            <div *ngIf="!userRegisterForm.get('password')?.valid &&
+                (userRegisterForm.get('password')?.dirty || submitted)">
+            Has introducido mal tu contraseña
+            </div>
         </div>
-    </fieldset>
-    <fieldset>
-        <label for="password">Password:</label>
-        <input type="password" id="password" formControlName="password" />
-            <!-- Si el campo password es invalido / ha sido password / submitted = true -->
-        <div *ngIf="!userRegisterForm.get('password')?.valid &&
-            (userRegisterForm.get('password')?.dirty || submitted)">
-          Has introducido mal tu contraseña
+      
+      
+        <div>
+            <input class="input" type="password" id="passwordRepeat" formControlName="passwordRepeat"  placeholder="Repite password"/>
+                <!-- Si el campo repeatPassword es invalido / ha sido password / submitted = true -->
+            <div *ngIf="!userRegisterForm.get('passwordRepeat')?.valid &&
+                (userRegisterForm.get('passwordRepeat')?.dirty || submitted)">
+            Tu contraseña no coincide
+            </div>
         </div>
-      </fieldset>
-      <fieldset>
-        <label for="passwordRepeat">Repeat password:</label>
-        <input type="password" id="passwordRepeat" formControlName="passwordRepeat" />
-            <!-- Si el campo repeatPassword es invalido / ha sido password / submitted = true -->
-        <div *ngIf="!userRegisterForm.get('passwordRepeat')?.valid &&
-            (userRegisterForm.get('passwordRepeat')?.dirty || submitted)">
-          Tu contraseña no coincide
-        </div>
-      </fieldset>
+      
 
       <button type="submit" [disabled]="!userRegisterForm.valid">Submit</button>
 

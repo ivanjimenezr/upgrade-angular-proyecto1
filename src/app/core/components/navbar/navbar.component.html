@@ -1,13 +1,17 @@
+
+<div class="main-content">
 <nav>
-    <a href="{{iLogo.href}}" title="{{iLogo.alt}}"><img src="{{iLogo.img}}" alt="{{iLogo.alt}}"></a>
-    <a [routerLink]="[home.href]">{{home.title}}</a> | 
-    <a *ngIf="this.authService.isLoggedIn" [routerLink]="[pisos.href]">{{pisos.title}}</a> | 
-    <a [routerLink]="[about.href]">{{about.title}}</a> | 
-    <a  *ngIf="!this.authService.isLoggedIn" [routerLink]="[login.href]">{{login.title}}</a> | 
-    <a  *ngIf="!this.authService.isLoggedIn" [routerLink]="[register.href]">{{register.title}}</a> | 
-    <a  *ngIf="this.authService.isLoggedIn" [routerLink]="[profile.href]">{{profile.title}}</a> | 
-    
-    
-    
-    <a href='#'(click)="logout()" *ngIf="this.authService.isLoggedIn" role="button">Logout</a>
+    <div class="first-menu">
+        <a href="{{iLogo.href}}" title="{{iLogo.alt}}"><img src="{{iLogo.img}}" alt="{{iLogo.alt}}"></a>
+        <a [routerLink]="[home.href]" title="{{home.title}}">{{home.title}}</a>
+        <a [routerLink]="[pisos.href]" title="{{pisos.title}}">{{pisos.title}}</a>
+        <a [routerLink]="[about.href]" title="{{about.title}}">{{about.title}}</a>
+    </div>
+    <div class="last-menu">
+        <a title="{{login.title}}" *ngIf="!this.authService.isLoggedIn" [routerLink]="[login.href]">{{login.title}}</a>
+        <a title="{{register.title}}" *ngIf="!this.authService.isLoggedIn" [routerLink]="[register.href]">{{register.title}}</a>
+        <a title="{{profile.title}}"  *ngIf="this.authService.isLoggedIn" [routerLink]="[profile.href]">{{profile.title}}</a>
+        <a href='#'(click)="logout()" *ngIf="this.authService.isLoggedIn" role="button">Logout</a>
+    </div>
 </nav>
+</div>
