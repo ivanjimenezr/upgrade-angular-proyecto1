@@ -1,7 +1,15 @@
-<p>{{pisosId.titular}}</p>
-<p>{{pisosId.precio}}</p>
-<p>{{pisosId.tipo}}</p>
-<p>{{pisosId.direccion}}</p>
-<p>{{pisosId.superficie}}</p>
-<p>{{pisosId.createdAt}}</p>
-        <img src="{{pisosId.imagen}}" alt="">
+
+<div class="content-detail">
+        
+        <div class="card">
+                <div class="foto">
+                        <img src="{{pisosId.imagen}}" alt="">
+                </div>
+                <div class="titular"><h1>{{pisosId.titular}}</h1></div>
+                <div><h4>{{pisosId.direccion}}</h4></div>
+                <div class="precio"><h2>{{pisosId.precio}}</h2></div>
+                <button (click)="onEditar(pisosId)">Editar</button>
+                <app-pisos-edit [piso]="pisoEditar" (cerrar)="cerrarEdicion()">Editar</app-pisos-edit>
+        </div>
+        
+</div>

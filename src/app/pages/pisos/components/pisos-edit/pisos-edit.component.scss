@@ -1,0 +1,13 @@
+@import '../../../../shared/styles/forms';
+
+.box-form {
+    input {
+        width: 90%;
+        padding: 5px;
+        margin: 5px 0;
+    }
+    button {
+        width: 200px;
+        margin: 5px;
+    }
+}

@@ -12,6 +12,7 @@ import { Subject, takeUntil } from 'rxjs';
 export class PisosDetailComponent implements OnInit {
 
   public pisosId? : any 
+  public pisoEditar = null;
 
   protected readonly clearSubscriptions$ = new Subject();
   constructor(private serviceService : ServiceService, private activatedRoute : ActivatedRoute) { }
@@ -33,5 +34,12 @@ export class PisosDetailComponent implements OnInit {
       this.pisosId = data.data.pisos
       console.log(this.pisosId)
     })
+  }
+
+  onEditar(piso: any ){
+    this.pisoEditar = piso;
+  }
+  cerrarEdicion(){
+    this.pisoEditar = null;
   }
 }

@@ -1,0 +1,49 @@
+<div class="box-form">
+<div *ngIf="pisoOriginal">
+    <form novalidate [formGroup]="formActualizar" (ngSubmit)="onGuardar()">
+        <div>
+            <input type="text" mdInmput placeholder="Titular" formControlName="titular">
+            <div *ngIf="!formActualizar.get('titular')?.valid &&
+            (formActualizar.get('titular')?.dirty || submitted)">
+            El título no puede estar vacio
+        </div>
+        </div>    
+
+        <div><input type="text" mdInmput placeholder="Precio" formControlName="precio">
+            <div *ngIf="!formActualizar.get('precio')?.valid &&
+            (formActualizar.get('precio')?.dirty || submitted)">
+            El precio no puede estar vacio
+            </div>
+        </div> 
+        
+         <div><input type="text" mdInmput placeholder="Tipo" formControlName="tipo">
+            <div *ngIf="!formActualizar.get('tipo')?.valid &&
+            (formActualizar.get('tipo')?.dirty || submitted)">
+            El tipo no puede estar vacio
+            </div>
+        </div> 
+
+         <div><input type="text" mdInmput placeholder="Direccion" formControlName="direccion">
+            <div *ngIf="!formActualizar.get('direccion')?.valid &&
+            (formActualizar.get('direccion')?.dirty || submitted)">
+            La dirección no puede estar vacia
+            </div>
+        </div> 
+         <div><input type="number" mdInmput placeholder="Superficie" formControlName="superficie">
+            <div *ngIf="!formActualizar.get('superficie')?.valid &&
+            (formActualizar.get('superficie')?.dirty || submitted)">
+            La superficie no puede estar vacia
+            </div>
+        </div> 
+         <div><input type="text" mdInmput placeholder="Imagen" formControlName="imagen">
+            <div *ngIf="!formActualizar.get('imagen')?.valid &&
+            (formActualizar.get('imagen')?.dirty || submitted)">
+            La imagen no puede estar vacia
+            </div>
+        </div> 
+
+         <div><button type="submit" >Guardar</button>
+        <button type="submit" (click)="onCancelar()">Cancelar</button></div> 
+    </form>
+</div>
+</div>
