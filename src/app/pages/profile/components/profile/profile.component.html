@@ -6,7 +6,7 @@
         <div class="datos">
             <h2>{{user.data.usuarios.name}}</h2>
             <p>Email: {{user.data.usuarios.email}}</p>
-            <p>Fecha de alta: {{user.data.usuarios.createdAt}}</p>
+            <p>Fecha de alta: {{user.data.usuarios.createdAt | date: 'd/M/yy'}}</p>
         </div>
     </div>
 </div>

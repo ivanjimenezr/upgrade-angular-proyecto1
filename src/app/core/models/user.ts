@@ -14,3 +14,11 @@ export interface IuserLogin {
 export interface IcurrentUserId {
     currentUserId : String;
 }
+export interface Ipta {
+    titular: String;
+    precio: String;
+    tipo: String;
+    direccion: String
+    superficie: Number;
+    imagen: String;
+}

@@ -3,6 +3,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { Ipiso } from '../models/ipiso';
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +33,8 @@ export class ServiceService {
       catchError(this.handleError)
     )
   }
+
+  
 
   // Error 
   handleError(error: HttpErrorResponse) {

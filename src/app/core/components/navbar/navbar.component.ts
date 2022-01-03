@@ -16,6 +16,7 @@ export class NavbarComponent implements OnInit {
   public login! : ILinks;
   public register! : ILinks;
   public profile! : ILinks;
+  public pta! : ILinks;
 
   public userId = sessionStorage.getItem('id');
   public userName = sessionStorage.getItem('name');
@@ -53,6 +54,11 @@ this.register = {
 
   title:'Register',
   href:'register'
+},
+this.pta = {
+
+  title:'Pon tu anuncio',
+  href:'pta'
 },
 this.profile = {
 

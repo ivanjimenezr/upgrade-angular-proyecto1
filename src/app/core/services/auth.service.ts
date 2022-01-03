@@ -1,3 +1,4 @@
+import { Ipta } from './../../pages/pta/components/pta-form/models/ipta';
 import { Injectable } from '@angular/core';
 import { User, IuserLogin, IcurrentUserId } from '../models/user';
 import { Observable, throwError } from 'rxjs';
@@ -25,6 +26,23 @@ export class AuthService {
         catchError(this.handleError)
       )
   }
+
+  // piso-up
+  pisoUp(piso: Ipta): Observable<any> {
+    return this.http.post(`${this.endpoint}/pisos`, piso)
+      .pipe(
+        catchError(this.handleError)
+      )
+  }
+
+
+// piso piso-update
+updatePiso(piso: Ipta, id:String){
+  return this.http.put(`${this.endpoint}/pisos/${id}`, piso)
+      .pipe(
+        catchError(this.handleError)
+      )
+}
 
   // Sign-in
   public signIn(iuserLogin: IuserLogin) {
@@ -81,6 +99,9 @@ export class AuthService {
       catchError(this.handleError)
     )
   }
+
+
+  
 
   // Error 
   handleError(error: HttpErrorResponse) {

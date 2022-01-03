@@ -4,13 +4,14 @@
     <div class="first-menu">
         <a href="{{iLogo.href}}" title="{{iLogo.alt}}"><img src="{{iLogo.img}}" alt="{{iLogo.alt}}"></a>
         <a [routerLink]="[home.href]" title="{{home.title}}">{{home.title}}</a>
-        <a [routerLink]="[pisos.href]" title="{{pisos.title}}">{{pisos.title}}</a>
-        <a [routerLink]="[about.href]" title="{{about.title}}">{{about.title}}</a>
+        <a [routerLink]="[pisos.href]" [routerLinkActive]="['is-active']" title="{{pisos.title}}">{{pisos.title}}</a>
+        <a [routerLink]="[about.href]" [routerLinkActive]="['is-active']" title="{{about.title}}">{{about.title}}</a>
     </div>
     <div class="last-menu">
-        <a title="{{login.title}}" *ngIf="!this.authService.isLoggedIn" [routerLink]="[login.href]">{{login.title}}</a>
-        <a title="{{register.title}}" *ngIf="!this.authService.isLoggedIn" [routerLink]="[register.href]">{{register.title}}</a>
-        <a title="{{profile.title}}"  *ngIf="this.authService.isLoggedIn" [routerLink]="[profile.href]">{{profile.title}}</a>
+        <a title="{{pta.title}}" *ngIf="this.authService.isLoggedIn" [routerLink]="[pta.href]" [routerLinkActive]="['is-active']">{{pta.title}}</a>
+        <a title="{{login.title}}" *ngIf="!this.authService.isLoggedIn" [routerLink]="[login.href]" [routerLinkActive]="['is-active']">{{login.title}}</a>
+        <a title="{{register.title}}" *ngIf="!this.authService.isLoggedIn" [routerLink]="[register.href]"[routerLinkActive]="['is-active']">{{register.title}}</a>
+        <a title="{{profile.title}}"  *ngIf="this.authService.isLoggedIn" [routerLink]="[profile.href]"[routerLinkActive]="['is-active']">{{profile.title}}</a>
         <a href='#'(click)="logout()" *ngIf="this.authService.isLoggedIn" role="button">Logout</a>
     </div>
 </nav>

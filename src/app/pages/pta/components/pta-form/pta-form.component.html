@@ -1,0 +1,53 @@
+<h2>Pon tu anuncio</h2>
+<form novalidate (ngSubmit)="onSubmit()" [formGroup]="ptaUploadForm">
+    <div>
+        <input class="input" type="text" id="titular" formControlName="titular" placeholder="Titular">
+        <div *ngIf="!ptaUploadForm.get('titular')?.valid &&
+            (ptaUploadForm.get('titular')?.dirty || submitted)">
+            Has introducido mal el título
+        </div>
+    </div>
+
+    <div>
+        <input class="input" type="text" id="precio" formControlName="precio" placeholder="Precio">
+        <div *ngIf="!ptaUploadForm.get('precio')?.valid &&
+            (ptaUploadForm.get('precio')?.dirty || submitted)">
+            Has introducido mal el precio
+        </div>
+    </div>
+
+    <div>
+        <input class="input" type="text" id="tipo" formControlName="tipo" placeholder="Tipo (chalé, piso, dúplex, etc)">
+        <div *ngIf="!ptaUploadForm.get('tipo')?.valid &&
+            (ptaUploadForm.get('tipo')?.dirty || submitted)">
+            Has introducido mal el tipo
+        </div>
+    </div>
+
+    <div>
+        <input class="input" type="text" id="direccion" formControlName="direccion" placeholder="Dirección">
+        <div *ngIf="!ptaUploadForm.get('direccion')?.valid &&
+            (ptaUploadForm.get('direccion')?.dirty || submitted)">
+            Has introducido mal la dirección
+        </div>
+    </div>
+
+    <div>
+        <input class="input" type="text" id="superficie" formControlName="superficie" placeholder="Superficie">
+        <div *ngIf="!ptaUploadForm.get('superficie')?.valid &&
+            (ptaUploadForm.get('superficie')?.dirty || submitted)">
+            Has introducido mal la superficie
+        </div>
+    </div> 
+
+    <div>
+        <input class="input" type="text" id="imagen" formControlName="imagen" placeholder="Imagen">
+        <div *ngIf="!ptaUploadForm.get('imagen')?.valid &&
+            (ptaUploadForm.get('imagen')?.dirty || submitted)">
+            Has introducido mal la imagen
+        </div>
+    </div> 
+
+    <button type="submit" [disabled]="!ptaUploadForm.valid">Submit</button>
+
+</form>

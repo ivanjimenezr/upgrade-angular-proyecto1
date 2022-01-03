@@ -20,6 +20,10 @@ const routes: Routes = [
     path: `register`, loadChildren: () => import('./pages/register/register.module').then(m=>m.RegisterModule)
   },
   {
+    path: `pta`, loadChildren: () => import('./pages/pta/pta.module').then(m=>m.PtaModule),
+    canActivate: [AuthGuard] //Con esto protegemos esta ruta
+  },
+  {
     path: `profile/:id`, loadChildren: () => import('./pages/profile/profile.module').then(m=>m.ProfileModule),
     canActivate: [AuthGuard] //Con esto protegemos esta ruta
   },
