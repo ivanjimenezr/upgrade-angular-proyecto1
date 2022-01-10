@@ -23,14 +23,14 @@ nav {
     }
     
     .first-menu{
-        min-width: 500px;
+        min-width: 50%;
         display: flex;
         justify-content: flex-start;
         align-items: center;
         
     }
     .last-menu {
-        min-width: 200px;
+        min-width: 50%;
         display: flex;
         justify-content: flex-end;
     }
@@ -39,3 +39,12 @@ nav {
 img {
     width: 100px;
 }
+@media (max-width: 576px) {
+    nav {
+        flex-wrap: wrap;
+        .last-menu {
+            min-width: 100%;
+            background-color: yellow;
+        }
+    }
+ }

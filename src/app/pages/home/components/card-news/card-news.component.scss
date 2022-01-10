@@ -8,11 +8,12 @@ h1 {
 .group-cards {
     display: flex;
     justify-content: space-around;
-    padding: 10px 0;
+    padding: 10px;
     margin-top: 10px;
     border-top: 2px #E5E6E1 solid;
     .card {
         border: 1px #E5E6E1 solid;
+        margin: 0 5px;
         width: 350px;
     }
     img {
@@ -27,14 +28,15 @@ h1 {
     display: flex;
     justify-content: space-around;
     padding: 10px 0;
-    margin-top: 10px;
+    margin: 10px;
     .minicard {
         display: flex;
         justify-content: space-around;
+        margin: 10px;
         border: 1px #E5E6E1 solid;
-        width: 550px;
+        width: 90%;
         .picture {
-            width: 168px;
+            width: 90%;
             // height: 150px;
             img {
                 width: 100%;
@@ -51,3 +53,17 @@ h1 {
         
     }
 }
+
+@media (max-width: 576px) {
+    .group-cards {
+        flex-wrap: wrap;
+        
+    }
+    .group-minicards {
+        
+        flex-wrap: wrap;
+        .minicard {
+            margin: 10px;
+        }
+    }
+ }

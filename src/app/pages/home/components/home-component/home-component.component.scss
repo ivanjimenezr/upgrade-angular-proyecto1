@@ -1,7 +1,6 @@
 .hero-content {
-    width: 1440px;
-    height: 550px;
-    background-image: url('https://statics.imghs.net/Images/Home/home-autumn-dk_21.jpg');
-    background-position: center;
-    background-size: cover;
+    img {
+        width: 100%;
+    }
 }
+

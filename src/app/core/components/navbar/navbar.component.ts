@@ -72,6 +72,7 @@ this.profile = {
   }
 
   ngOnInit(): void {
+    console.log(this.userName)
     
   }
 
