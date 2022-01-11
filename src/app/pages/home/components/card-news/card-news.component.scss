@@ -31,12 +31,12 @@ h1 {
     margin: 10px;
     .minicard {
         display: flex;
-        justify-content: space-around;
+        justify-content:flex-start;
         margin: 10px;
         border: 1px #E5E6E1 solid;
         width: 90%;
         .picture {
-            width: 90%;
+            width: 20%;
             // height: 150px;
             img {
                 width: 100%;
@@ -45,7 +45,7 @@ h1 {
             }
         }
         .text {
-            padding: 10px;
+            padding: 10px;ç
             .titular {
                 font-size: 20px;
             }
