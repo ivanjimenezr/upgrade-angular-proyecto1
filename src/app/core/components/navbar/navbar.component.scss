@@ -39,12 +39,68 @@ nav {
 img {
     width: 100px;
 }
+
+.burger {
+    display:none;
+}
+
 @media (max-width: 576px) {
     nav {
-        flex-wrap: wrap;
-        .last-menu {
-            min-width: 100%;
-            background-color: yellow;
-        }
+        display: none;
     }
+
+    input {
+        display: none;
+      }
+    ul {
+        display:none;
+        // border: 1px red solid;
+        max-width: 200px;
+        background-color: #EEE;
+    }
+    input:checked  ~ ul{
+        display:block;
+      }
+    label {
+    box-sizing: border-box;
+    display: inline-block;
+    // border: 1px solid black;
+    border-radius: 5px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    font-weight: bold;
+    text-align: center;
+    user-select: none;
+    cursor: pointer;
+    }
+
+    li {
+        display: block;
+        // background: lightgrey;
+        margin: 0;
+        padding: 10px;
+        list-style: none;
+        // border-bottom: 1px solid grey;
+        &:hover {
+            background-color: rgb(0, 110, 201);
+            a {
+                color: white;
+            }
+        }
+      }
+      
+    .burger {
+        position: relative;
+        display: block;
+        padding: 5px;
+        .menuBurger {
+            position: absolute;
+            top: 30px;
+            right: 10px;
+            text-align: right;
+        }
+
+    }
+
  }
